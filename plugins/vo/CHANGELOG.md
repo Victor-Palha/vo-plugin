@@ -2,9 +2,12 @@
 
 ## 0.0.4 — 11/10/2026
 
-- `/vo:configurar`: testa a conexão, liga o repositório a um projeto e quadro (`.claude/vo.json`) e mostra o processo e as skills do projeto.
+- `/vo:configurar`: testa a conexão, liga o repositório a um projeto e quadro (`.vo.json`) e mostra o processo e as skills do projeto.
 - Skill de apoio `vo-fundamentos` e as regras comuns em `shared/` (transparência, skills do projeto, propostas, perguntas, formato da spec, estados do fluxo).
 - `scripts/pre-condicoes.sh`: confere repositório, configuração e GitHub CLI antes de cada comando.
+- A configuração do repositório fica em `.vo.json` na raiz (a pasta `.claude/` é protegida pelo Claude Code e recusava a gravação).
+- As regras comuns entram nos comandos por `!` (`scripts/regras.sh`), sem depender de permissão de leitura fora do repositório; cada skill libera no `allowed-tools` só os scripts do plugin que chama (sem isso o `!` é bloqueado), e o `verificar.py` confere isso.
+- Toda escrita é conferida depois de feita; uma gravação negada é relatada, nunca dada como feita.
 
 ## 0.0.3 — 11/10/2026
 

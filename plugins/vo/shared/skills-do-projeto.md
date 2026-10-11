@@ -4,7 +4,7 @@ O plugin não traz regra de nenhum projeto. Arquitetura, padrões, processo e gl
 
 ## Começo de todo comando
 
-Chame `obter_processo` com o `projeto_id` de `.claude/vo.json`. Ele traz:
+Chame `obter_processo` com o `projeto_id` de `.vo.json`. Ele traz:
 
 - as **permissões** da pessoa em cada módulo (kanban, documentacao, skills);
 - os **quadros** com as colunas e a categoria de cada uma: `pendente`, `em_andamento` ou `concluido`;

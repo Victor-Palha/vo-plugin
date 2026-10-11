@@ -2,11 +2,12 @@
 name: vo-fundamentos
 description: Use sempre que trabalhar no View Office (VO) pelas ferramentas do servidor MCP vo, dentro ou fora de um comando /vo:*. Explica como o VO organiza projetos, quadros, itens (épico, task, sub-task, pergunta), packages, documentação, grafo de ligações, skills, propostas e métricas, como referenciar cada coisa e onde fica gravado cada artefato do fluxo.
 user-invocable: false
+allowed-tools: Bash(sh *scripts/regras.sh*)
 ---
 
 # Como o VO organiza o trabalho
 
-O View Office (VO) é a fonte única do estado do trabalho. Tudo o que o plugin produz fica nele; no repositório só fica `.claude/vo.json`, que diz o projeto e o quadro.
+O View Office (VO) é a fonte única do estado do trabalho. Tudo o que o plugin produz fica nele; no repositório só fica `.vo.json`, que diz o projeto e o quadro.
 
 ## Projeto, quadro e itens
 
@@ -29,15 +30,17 @@ O View Office (VO) é a fonte única do estado do trabalho. Tudo o que o plugin 
 
 ## Skills e propostas
 
-- **Skills** (`skill:nome`): o conhecimento do projeto. Como carregar: `${CLAUDE_PLUGIN_ROOT}/shared/skills-do-projeto.md`.
-- **Propostas** (`PROP-N`): mudanças em skills, domínios e ADRs passam por proposta, aprovada por uma pessoa e aplicada quando o item ligado é concluído. Como propor: `${CLAUDE_PLUGIN_ROOT}/shared/propostas.md`.
+- **Skills** (`skill:nome`): o conhecimento do projeto, carregado como descrito abaixo.
+- **Propostas** (`PROP-N`): mudanças em skills, domínios e ADRs passam por proposta, aprovada por uma pessoa e aplicada quando o item ligado é concluído.
+
+!`sh "${CLAUDE_PLUGIN_ROOT}/scripts/regras.sh" skills-do-projeto propostas`
 
 ## Onde cada artefato do fluxo fica
 
 | Artefato | Onde, no VO |
 | --- | --- |
 | História | item `task`, sob um `epico` |
-| Spec (refinamento) | descrição da task, seção `## Spec` (`${CLAUDE_PLUGIN_ROOT}/shared/formato-da-spec.md`) |
+| Spec (refinamento) | descrição da task, seção `## Spec` |
 | Dúvidas | itens `pergunta` filhos da task |
 | Plano | sub-tasks da task, num package, com ligações `depende_de` |
 | Andamento e revisão | comentários no item |
@@ -45,7 +48,7 @@ O View Office (VO) é a fonte única do estado do trabalho. Tudo o que o plugin 
 
 ## Referências que as ferramentas aceitam
 
-Itens por chave (`VO-12`), decisões por `ADR-N`, domínios por `dominio:Nome`, relatórios por `relatorio:<id>`, skills por `skill:nome`, propostas por `PROP-N`, colunas, labels, packages e sprints por nome, pessoas por e-mail ou `eu`. O `projeto_id` está em `.claude/vo.json`.
+Itens por chave (`VO-12`), decisões por `ADR-N`, domínios por `dominio:Nome`, relatórios por `relatorio:<id>`, skills por `skill:nome`, propostas por `PROP-N`, colunas, labels, packages e sprints por nome, pessoas por e-mail ou `eu`. O `projeto_id` está em `.vo.json`.
 
 ## Métricas
 

@@ -4,7 +4,7 @@
 #
 #   sh pre-condicoes.sh <pasta do projeto> [--sem-config] [--git] [--gh]
 #
-#   --sem-config  não exige .claude/vo.json (usado por /vo:configurar)
+#   --sem-config  não exige .vo.json (usado por /vo:configurar)
 #   --git         exige um repositório git
 #   --gh          exige o GitHub CLI autenticado
 set -u
@@ -40,7 +40,7 @@ else
   [ "$exige_git" = 1 ] && bloqueado=1
 fi
 
-config="$raiz/.claude/vo.json"
+config="$raiz/.vo.json"
 if [ -f "$config" ]; then
   echo "config=ok"
   echo "config_arquivo=$config"

@@ -6,7 +6,7 @@ Plugin do View Office para o Claude Code. Visão geral, instalação e configura
 
 | Comando | O que faz |
 | --- | --- |
-| `/vo:configurar` | Testa a conexão com o VO, liga o repositório a um projeto e quadro (`.claude/vo.json`) e mostra o processo e as skills do projeto. |
+| `/vo:configurar` | Testa a conexão com o VO, liga o repositório a um projeto e quadro (`.vo.json`) e mostra o processo e as skills do projeto. |
 
 ## Skills de apoio
 

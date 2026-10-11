@@ -6,6 +6,7 @@ Toda escrita fora do repositório local é visível para o time e fica no histó
 2. **Mostre** exatamente o que vai ser gravado: título, texto, destino (projeto, item, coluna, branch). Texto longo vai inteiro, em bloco.
 3. **Confirme uma vez por lote** com a ferramenta de pergunta (`AskUserQuestion`), oferecendo "gravar tudo", "ajustar" e "cancelar". Não peça confirmação item por item.
 4. **Execute** e **devolva as chaves e os links** do que foi criado (`VO-12`, `PROP-3`, URL do PR).
+5. **Confira** o resultado de cada escrita. Se uma for negada ou falhar, diga isso com clareza; nunca relate como feito o que não foi conferido.
 
 Regras:
 
