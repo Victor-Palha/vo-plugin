@@ -1,0 +1,58 @@
+# Plugin do View Office para o Claude Code
+
+Trabalhe no [View Office](https://vo.rivia-hub.tech) (VO) direto do Claude Code: escrever e refinar histórias, responder perguntas, planejar, implementar, revisar e preparar o PR, com o **conhecimento do seu projeto vindo do VO**.
+
+O plugin não traz regras de nenhum projeto. Arquitetura, padrões, fluxo de branches, checks e glossário ficam nas **Skills** do projeto, dentro do VO, versionadas e alteradas só por proposta aprovada. O plugin carrega as skills que valem para os arquivos em que está trabalhando. Quando o trabalho pede uma mudança de domínio, uma ADR ou uma skill, ele **propõe**, e a mudança só vale quando o item for concluído.
+
+Tudo o que o plugin produz fica no VO: a spec na descrição do item, as dúvidas como itens `pergunta`, o plano como sub-tasks e package, a revisão e o relatório final. Nada fica em arquivo local, a não ser `.claude/vo.json`, que liga o repositório ao projeto.
+
+## Requisitos
+
+- Claude Code.
+- Uma conta no View Office com acesso a um projeto, e um **token de API** (View Office → Tokens de API).
+- `git` e `gh` (GitHub CLI) autenticados, para implementar e abrir PRs.
+
+## Instalação
+
+```
+/plugin marketplace add Victor-Palha/vo-plugin
+/plugin install vo@rivia
+```
+
+Na instalação, o Claude Code pede o **token de API** (guardado no cofre de credenciais do sistema) e o endereço do MCP. O padrão é `https://vo.rivia-hub.tech/mcp`; troque só se usar outra instalação do VO. Para mudar depois: `/plugin configure vo`.
+
+Em seguida, dentro do repositório do projeto:
+
+```
+/vo:configurar
+```
+
+## Comandos
+
+Os comandos estão em construção. A lista completa, com o que cada um faz, está em [plugins/vo/README.md](plugins/vo/README.md).
+
+## Estrutura
+
+```
+.claude-plugin/marketplace.json   marketplace "rivia"
+plugins/vo/
+  .claude-plugin/plugin.json      manifesto, versão e configuração (endereço e token)
+  .mcp.json                       servidor MCP do VO
+  skills/<comando>/SKILL.md       comandos (/vo:...) e skills de apoio
+  agents/                         agentes usados pelos comandos
+  shared/                         regras comuns aos comandos
+  hooks/                          hooks do plugin
+  scripts/                        scripts usados pelos comandos e hooks
+  CHANGELOG.md
+scripts/verificar.py              verificação estrutural (CI)
+```
+
+## Contribuindo
+
+- Toda mudança em `plugins/` sobe a versão em `plugin.json` (semver) e ganha uma seção no `CHANGELOG.md`.
+- O header `X-VO-Cliente` do `.mcp.json` leva a mesma versão.
+- Antes do PR: `python3 scripts/verificar.py --base origin/main` e `claude plugin validate plugins/vo --strict`. A CI roda os dois.
+
+## Licença
+
+MIT.

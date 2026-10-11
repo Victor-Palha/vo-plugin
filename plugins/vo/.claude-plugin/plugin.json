@@ -1,0 +1,30 @@
+{
+  "name": "vo",
+  "displayName": "View Office",
+  "version": "0.0.1",
+  "description": "Trabalhe com o View Office pelo Claude Code: escreva e refine histórias, responda perguntas, planeje, implemente, revise e prepare o PR, com as skills, os domínios e as decisões do projeto vindos do VO. Mudanças de documentação viram propostas aplicadas quando o trabalho conclui.",
+  "author": {
+    "name": "Rivia",
+    "url": "https://vo.rivia-hub.tech"
+  },
+  "homepage": "https://vo.rivia-hub.tech",
+  "repository": "https://github.com/Victor-Palha/vo-plugin",
+  "license": "MIT",
+  "keywords": ["view-office", "vo", "kanban", "mcp", "workflow", "skills"],
+  "userConfig": {
+    "vo_url": {
+      "type": "string",
+      "title": "Endereço do MCP do VO",
+      "description": "URL do servidor MCP do View Office. Troque só se o seu VO não for o da Rivia.",
+      "required": true,
+      "default": "https://vo.rivia-hub.tech/mcp"
+    },
+    "vo_token": {
+      "type": "string",
+      "title": "Token de API do VO",
+      "description": "Crie em View Office → Tokens de API (começa com vo_). Fica no cofre de credenciais do sistema.",
+      "required": true,
+      "sensitive": true
+    }
+  }
+}

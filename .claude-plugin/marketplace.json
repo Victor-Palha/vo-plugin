@@ -1,0 +1,16 @@
+{
+  "name": "rivia",
+  "owner": {
+    "name": "Rivia",
+    "url": "https://vo.rivia-hub.tech"
+  },
+  "description": "Plugins da Rivia para o Claude Code.",
+  "plugins": [
+    {
+      "name": "vo",
+      "source": "./plugins/vo",
+      "description": "Trabalhe com o View Office pelo Claude Code: histórias, refinamento, planejamento, implementação, revisão e PR, com o conhecimento do projeto vindo do VO.",
+      "category": "Development"
+    }
+  ]
+}
