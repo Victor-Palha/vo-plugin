@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.0.4 — 11/10/2026
+
+- `/vo:configurar`: testa a conexão, liga o repositório a um projeto e quadro (`.claude/vo.json`) e mostra o processo e as skills do projeto.
+- Skill de apoio `vo-fundamentos` e as regras comuns em `shared/` (transparência, skills do projeto, propostas, perguntas, formato da spec, estados do fluxo).
+- `scripts/pre-condicoes.sh`: confere repositório, configuração e GitHub CLI antes de cada comando.
+
 ## 0.0.3 — 11/10/2026
 
 - Rastreio da execução: `scripts/execucao.sh` marca o começo de um comando e o hook `PreToolUse` anexa `_vo` (comando, execução, item) às chamadas ao VO, para as métricas por comando.
