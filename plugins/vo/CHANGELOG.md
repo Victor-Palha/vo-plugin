@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.0.5 — 11/10/2026
+
+- `/vo:escrever-historia`: entrevista, confere glossário e domínios, procura parecidas, cria a história sob o épico e propõe domínio novo quando preciso.
+- `/vo:responder-perguntas`: responde em lote as perguntas abertas atribuídas a você e oferece propor a mudança de domínio.
+- Regras de transparência: lista vazia ou "não existe" pode ser falta de permissão; os comandos conferem `permissoes` antes de afirmar que algo não existe ou de propor.
+
 ## 0.0.4 — 11/10/2026
 
 - `/vo:configurar`: testa a conexão, liga o repositório a um projeto e quadro (`.vo.json`) e mostra o processo e as skills do projeto.
