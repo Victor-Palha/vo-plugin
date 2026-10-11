@@ -1,7 +1,7 @@
 {
   "name": "vo",
   "displayName": "View Office",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Trabalhe com o View Office pelo Claude Code: escreva e refine histórias, responda perguntas, planeje, implemente, revise e prepare o PR, com as skills, os domínios e as decisões do projeto vindos do VO. Mudanças de documentação viram propostas aplicadas quando o trabalho conclui.",
   "author": {
     "name": "Rivia",

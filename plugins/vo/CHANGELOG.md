@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.0.8 — 11/10/2026
+
+- `/vo:implementar`: pré-condições (spec, dependências, impedimento, responsável), branch do package sem criar por conta própria, implementador → escritor-testes com as skills dos arquivos previstos e reais, checks, ciclo de revisão até ficar limpa e commit local sem push, com comentário no item.
+- Agentes `implementador`, `escritor-testes` e `revisor` (só leitura).
+- Os comandos sabem quem está conectado pelo `voce` de `obter_processo` (responsável de uma sub-task, quem aprovou uma spec), com alternativa por `listar_itens` (`responsavel: eu`) para VO sem `voce`.
+
 ## 0.0.7 — 11/10/2026
 
 - `/vo:planejar`: com a spec aprovada, divide a história em sub-tasks verticais com arquivos previstos e skills, mostra o plano inteiro e cria package, sub-tasks, dependências e propostas de ADR e de skill; devolve a primeira sub-task pronta.
