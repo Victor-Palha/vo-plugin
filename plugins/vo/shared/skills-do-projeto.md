@@ -6,6 +6,7 @@ O plugin não traz regra de nenhum projeto. Arquitetura, padrões, processo e gl
 
 Chame `obter_processo` com o `projeto_id` de `.vo.json`. Ele traz:
 
+- **quem é você** (`voce`: nome e e-mail do dono do token). É com ele que se confere o responsável de um item e se registra quem aprovou. Se o VO não trouxer `voce`, descubra com `listar_itens` (`responsavel: eu`, `busca: <chave>`): se o item aparece, ele é seu;
 - as **permissões** da pessoa em cada módulo (kanban, documentacao, skills);
 - os **quadros** com as colunas e a categoria de cada uma: `pendente`, `em_andamento` ou `concluido`;
 - as skills de **processo** completas: fluxo de branches, checks que precisam passar, o que cada coluna significa;

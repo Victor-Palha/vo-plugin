@@ -18,7 +18,7 @@ Se a última linha acima for `situacao=bloqueado` com `config=ausente`, peça pa
 
 ## Regras
 
-!`sh "${CLAUDE_PLUGIN_ROOT}/scripts/regras.sh" transparencia perguntas propostas formato-da-spec estados-do-fluxo`
+!`sh "${CLAUDE_PLUGIN_ROOT}/scripts/regras.sh" transparencia skills-do-projeto perguntas propostas formato-da-spec estados-do-fluxo`
 
 ## Passos
 
@@ -48,7 +48,7 @@ Se a última linha acima for `situacao=bloqueado` com `config=ausente`, peça pa
 
    Depois, `obter_item` da história: confira que a descrição começa com o texto original e que a spec gravada é a mostrada.
 7. **Aprovar.** Se a spec ficou `pronta`, pergunte se a pessoa a aprova agora. Se a skill de processo disser que quem aprova é outra pessoa (o PO, por exemplo), não pergunte: diga quem precisa rodar `/vo:refinar <chave>` para aprovar. Aprovando, com uma confirmação:
-   - `atualizar_item`: **Estado:** `aprovada` e **Aprovada por:** `<nome> em <AAAA-MM-DD>` (o nome é o de `obter_processo`), sem mudar mais nada;
+   - `atualizar_item`: **Estado:** `aprovada` e **Aprovada por:** `<nome> em <AAAA-MM-DD>` (o nome é o de `voce`, em `obter_processo`), sem mudar mais nada;
    - `comentar_item`: "Spec aprovada por <nome> na rodada <n>.", com as propostas ligadas (`PROP-…`) que serão aplicadas quando a história for concluída.
 8. **Devolver.** Estado da spec, perguntas abertas com o responsável de cada uma, propostas criadas ou atualizadas e o próximo passo:
    - `aguardando`: `/vo:responder-perguntas`, por quem decide, e depois `/vo:refinar <chave>`;

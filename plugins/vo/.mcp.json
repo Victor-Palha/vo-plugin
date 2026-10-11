@@ -5,7 +5,7 @@
       "url": "${user_config.vo_url}",
       "headers": {
         "Authorization": "Bearer ${user_config.vo_token}",
-        "X-VO-Cliente": "vo-plugin/0.0.7"
+        "X-VO-Cliente": "vo-plugin/0.0.8"
       }
     }
   }

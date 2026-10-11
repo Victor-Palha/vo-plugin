@@ -11,6 +11,7 @@ Plugin do View Office para o Claude Code. Visão geral, instalação e configura
 | `/vo:responder-perguntas` | Mostra as perguntas abertas atribuídas a você, com contexto, opções e sugestão; aceita respostas em lote, grava e oferece propor a mudança de domínio. |
 | `/vo:refinar <história>` | Uma rodada de refinamento por chamada: lê o que mudou, monta a spec com o agente `refinador`, faz a triagem em lote, abre até 5 perguntas, propõe a documentação ligada à história e registra a aprovação. |
 | `/vo:planejar <história>` | Divide a história com spec aprovada em sub-tasks verticais com o agente `planejador` (arquivos previstos e skills de cada uma) e, com uma confirmação, cria o package, as sub-tasks, as dependências e as propostas de ADR e de skill. |
+| `/vo:implementar <sub-task>` | Confere spec, dependências e impedimentos, entra na branch do package, orquestra `implementador` e `escritor-testes` com as skills dos arquivos, roda os checks, revisa com o `revisor` até ficar limpo e faz o commit local, comentando no item. |
 
 ## Skills de apoio
 
@@ -20,6 +21,9 @@ Plugin do View Office para o Claude Code. Visão geral, instalação e configura
 
 - `refinador` (só leitura): usado pelo `/vo:refinar`. Lê domínios, ADRs, skills, propostas e código e devolve a spec da rodada, as perguntas candidatas, as decisões padrão e a documentação a propor. Quem grava é o comando, depois de mostrar.
 - `planejador` (só leitura): usado pelo `/vo:planejar`. Lê código, skills, domínios e ADRs e devolve as sub-tasks verticais com arquivos previstos, skills, testes, dependências, cobertura das regras e as ADRs e skills a propor.
+- `implementador`: usado pelo `/vo:implementar`. Escreve o código de produção da sub-task seguindo as skills recebidas e devolve arquivos, decisões, dúvidas e padrões que faltam. Não escreve testes nem faz commit.
+- `escritor-testes`: usado pelo `/vo:implementar`. Escreve um teste por cenário da spec, roda a suíte e devolve o mapa cenário → teste. Não muda código de produção: bug vira apontamento.
+- `revisor` (só leitura): usado pelo `/vo:implementar` e pelo `/vo:revisar`. Revisa o diff contra a base; cada apontamento cita a regra que o sustenta (skill › seção, regra da spec, ADR, segurança ou correção) e vem com a cobertura da spec e um veredito.
 
 ## Hooks
 
