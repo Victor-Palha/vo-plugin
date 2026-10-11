@@ -7,6 +7,8 @@ Plugin do View Office para o Claude Code. Visão geral, instalação e configura
 | Comando | O que faz |
 | --- | --- |
 | `/vo:configurar` | Testa a conexão com o VO, liga o repositório a um projeto e quadro (`.vo.json`) e mostra o processo e as skills do projeto. |
+| `/vo:escrever-historia` | Entrevista uma pergunta por vez, confere glossário e domínios, procura histórias parecidas e cria a história (task) sob o épico, propondo domínio novo quando aparece um conceito novo. |
+| `/vo:responder-perguntas` | Mostra as perguntas abertas atribuídas a você, com contexto, opções e sugestão; aceita respostas em lote, grava e oferece propor a mudança de domínio. |
 
 ## Skills de apoio
 
