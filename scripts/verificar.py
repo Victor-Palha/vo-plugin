@@ -102,7 +102,8 @@ def cliente(versao: str) -> None:
 
 def skills() -> list[tuple[str, dict]]:
     encontradas = []
-    for pasta in sorted((PLUGIN / "skills").iterdir()):
+    raiz = PLUGIN / "skills"
+    for pasta in sorted(raiz.iterdir() if raiz.exists() else []):
         if not pasta.is_dir():
             continue
         arquivo = pasta / "SKILL.md"
@@ -141,7 +142,8 @@ def agentes() -> list[str]:
 
 def referencias() -> None:
     """`shared/x.md` e `scripts/x` citados precisam existir."""
-    for arquivo in list((PLUGIN / "skills").rglob("*.md")) + list((PLUGIN / "agents").glob("*.md")) + list((PLUGIN / "shared").glob("*.md")):
+    arquivos = [p for pasta in ("skills", "agents", "shared") for p in (PLUGIN / pasta).rglob("*.md")]
+    for arquivo in arquivos:
         texto = arquivo.read_text(encoding="utf-8")
         for ref in set(re.findall(r"(?:shared|scripts)/[\w.-]+\.(?:md|sh|py|mjs)", texto)):
             if not (PLUGIN / ref).exists():
