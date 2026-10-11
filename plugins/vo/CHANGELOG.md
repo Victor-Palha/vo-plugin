@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.0.6 — 11/10/2026
+
+- `/vo:refinar`: uma rodada por chamada, com a spec na descrição da história, triagem em lote, até 5 perguntas por rodada, propostas ligadas à história e aprovação registrada na spec e em comentário.
+- Agente `refinador`, só de leitura.
+
 ## 0.0.5 — 11/10/2026
 
 - `/vo:escrever-historia`: entrevista, confere glossário e domínios, procura parecidas, cria a história sob o épico e propõe domínio novo quando preciso.

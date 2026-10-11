@@ -9,6 +9,7 @@ Plugin do View Office para o Claude Code. Visão geral, instalação e configura
 | `/vo:configurar` | Testa a conexão com o VO, liga o repositório a um projeto e quadro (`.vo.json`) e mostra o processo e as skills do projeto. |
 | `/vo:escrever-historia` | Entrevista uma pergunta por vez, confere glossário e domínios, procura histórias parecidas e cria a história (task) sob o épico, propondo domínio novo quando aparece um conceito novo. |
 | `/vo:responder-perguntas` | Mostra as perguntas abertas atribuídas a você, com contexto, opções e sugestão; aceita respostas em lote, grava e oferece propor a mudança de domínio. |
+| `/vo:refinar <história>` | Uma rodada de refinamento por chamada: lê o que mudou, monta a spec com o agente `refinador`, faz a triagem em lote, abre até 5 perguntas, propõe a documentação ligada à história e registra a aprovação. |
 
 ## Skills de apoio
 
@@ -16,7 +17,7 @@ Plugin do View Office para o Claude Code. Visão geral, instalação e configura
 
 ## Agentes
 
-Nenhum ainda.
+- `refinador` (só leitura): usado pelo `/vo:refinar`. Lê domínios, ADRs, skills, propostas e código e devolve a spec da rodada, as perguntas candidatas, as decisões padrão e a documentação a propor. Quem grava é o comando, depois de mostrar.
 
 ## Hooks
 
