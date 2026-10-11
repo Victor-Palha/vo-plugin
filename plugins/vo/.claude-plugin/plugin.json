@@ -1,7 +1,7 @@
 {
   "name": "vo",
   "displayName": "View Office",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Trabalhe com o View Office pelo Claude Code: escreva e refine histórias, responda perguntas, planeje, implemente, revise e prepare o PR, com as skills, os domínios e as decisões do projeto vindos do VO. Mudanças de documentação viram propostas aplicadas quando o trabalho conclui.",
   "author": {
     "name": "Rivia",
@@ -16,7 +16,7 @@
       "type": "string",
       "title": "Endereço do MCP do VO",
       "description": "URL do servidor MCP do View Office. Troque só se o seu VO não for o da Rivia.",
-      "required": true,
+      "required": false,
       "default": "https://vo.rivia-hub.tech/mcp"
     },
     "vo_token": {
