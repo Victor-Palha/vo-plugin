@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.0.7 — 11/10/2026
+
+- `/vo:planejar`: com a spec aprovada, divide a história em sub-tasks verticais com arquivos previstos e skills, mostra o plano inteiro e cria package, sub-tasks, dependências e propostas de ADR e de skill; devolve a primeira sub-task pronta.
+- Agente `planejador`, só de leitura.
+- Regras de propostas: só referencie o que já existe; skill ou domínio ainda em proposta se cita no texto como `PROP-N`.
+
 ## 0.0.6 — 11/10/2026
 
 - `/vo:refinar`: uma rodada por chamada, com a spec na descrição da história, triagem em lote, até 5 perguntas por rodada, propostas ligadas à história e aprovação registrada na spec e em comentário.

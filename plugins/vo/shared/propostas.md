@@ -17,6 +17,7 @@ Durante um comando, o plugin **não edita** domínios, skills nem ADRs diretamen
 - **Ligue ao item** do trabalho (`item`). Sem item, a mudança vale assim que for aprovada.
 - **Embasamento**: por que mudar e o que sustenta a mudança. Obrigatório para skills; escreva-o também para domínios e ADRs.
 - **Referências**: o que sustenta, na forma que o VO entende: `ADR-3`, `VO-12`, `dominio:Pedidos`, `skill:nome`, caminhos de código (`lib/app/pedidos.ex`) e URLs.
+- **Só referencie o que já existe.** Uma skill ou um domínio que ainda é proposta não existe para o VO: `skill:nome` dele é recusado e `PROP-N` não é referência. Cite a proposta no texto (embasamento, contexto da ADR) como `PROP-N`.
 - **Conteúdo inteiro**: numa alteração de domínio ou skill, mande o conteúdo completo como deve ficar, não um trecho.
 - Mostre a proposta à pessoa antes de enviar (`shared/transparencia.md`). Depois, devolva a `PROP-N` e diga que ela vale quando o item for concluído, depois de aprovada.
 
