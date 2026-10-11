@@ -14,6 +14,10 @@ Nenhuma ainda.
 
 Nenhum ainda.
 
+## Hooks
+
+- `PreToolUse` nas ferramentas do MCP do VO (`scripts/injetar_execucao.py`): durante um comando, anexa a execução às chamadas para as métricas e decide a permissão (exclusões e decisões de proposta perguntam; o resto é aprovado). A execução é marcada no começo de cada comando por `scripts/execucao.sh`.
+
 ## Regras comuns (`shared/`)
 
 Nenhuma ainda.

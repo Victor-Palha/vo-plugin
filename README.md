@@ -27,6 +27,16 @@ Em seguida, dentro do repositório do projeto:
 /vo:configurar
 ```
 
+## Permissões e métricas
+
+Cada comando `/vo:*` marca as chamadas que faz ao VO com o comando e a execução, para a aba **Métricas** do projeto (e o `/vo:metricas`) mostrarem o uso por comando. Isso é feito por um hook `PreToolUse` que só age durante um comando do plugin. Para marcar a chamada, o Claude Code exige que o hook decida a permissão:
+
+- chamadas que leem ou criam/propõem no VO são **aprovadas** durante o comando (os comandos já mostram e pedem confirmação antes de gravar);
+- **exclusões** (`excluir_*`) e **decisões de proposta** (`aprovar_proposta`, `rejeitar_proposta`) **sempre perguntam**;
+- fora de um comando, ou numa execução parada há mais de 3 horas, o hook não faz nada e vale a permissão normal do Claude Code.
+
+O hook precisa de `python3` (3.9 ou mais novo; o do macOS serve). O VO nunca guarda o conteúdo das chamadas, só a ferramenta, o comando, a duração e se deu erro.
+
 ## Comandos
 
 Os comandos estão em construção. A lista completa, com o que cada um faz, está em [plugins/vo/README.md](plugins/vo/README.md).
@@ -51,7 +61,7 @@ scripts/verificar.py              verificação estrutural (CI)
 
 - Toda mudança em `plugins/` sobe a versão em `plugin.json` (semver) e ganha uma seção no `CHANGELOG.md`.
 - O header `X-VO-Cliente` do `.mcp.json` leva a mesma versão.
-- Antes do PR: `python3 scripts/verificar.py --base origin/main` e `claude plugin validate plugins/vo --strict`. A CI roda os dois.
+- Antes do PR: `python3 scripts/verificar.py --base origin/main`, `python3 scripts/testar_hook.py` e `claude plugin validate plugins/vo --strict`. A CI roda os três (o teste do hook em Python 3.9).
 
 ## Licença
 
