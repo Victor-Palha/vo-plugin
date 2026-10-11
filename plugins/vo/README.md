@@ -4,11 +4,13 @@ Plugin do View Office para o Claude Code. Visão geral, instalação e configura
 
 ## Comandos
 
-Ainda nenhum: os comandos chegam nas próximas versões.
+| Comando | O que faz |
+| --- | --- |
+| `/vo:configurar` | Testa a conexão com o VO, liga o repositório a um projeto e quadro (`.vo.json`) e mostra o processo e as skills do projeto. |
 
 ## Skills de apoio
 
-Nenhuma ainda.
+- `vo-fundamentos`: como o VO organiza projetos, quadros, itens, documentação, grafo, skills, propostas e métricas, e onde fica cada artefato do fluxo. O Claude carrega quando trabalha com as ferramentas do VO.
 
 ## Agentes
 
@@ -20,4 +22,14 @@ Nenhum ainda.
 
 ## Regras comuns (`shared/`)
 
-Nenhuma ainda.
+- `transparencia.md`: o que sai da máquina passa pela pessoa (planejar, mostrar, confirmar, executar, devolver links).
+- `skills-do-projeto.md`: `obter_processo` no começo e `skills_para_arquivos` antes de mexer em arquivos.
+- `propostas.md`: quando e como propor mudanças em domínios, ADRs e skills.
+- `perguntas.md`: uma por vez na conversa; no refinamento, até 5 por rodada como itens `pergunta`.
+- `formato-da-spec.md`: a seção `## Spec` na descrição da história.
+- `estados-do-fluxo.md`: em que coluna cada etapa deixa o item.
+
+## Scripts
+
+- `scripts/execucao.sh`: marca o começo de um comando (rastreio da execução).
+- `scripts/pre-condicoes.sh`: confere repositório, configuração e GitHub CLI antes de cada comando.

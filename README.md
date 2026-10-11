@@ -4,7 +4,7 @@ Trabalhe no [View Office](https://vo.rivia-hub.tech) (VO) direto do Claude Code:
 
 O plugin não traz regras de nenhum projeto. Arquitetura, padrões, fluxo de branches, checks e glossário ficam nas **Skills** do projeto, dentro do VO, versionadas e alteradas só por proposta aprovada. O plugin carrega as skills que valem para os arquivos em que está trabalhando. Quando o trabalho pede uma mudança de domínio, uma ADR ou uma skill, ele **propõe**, e a mudança só vale quando o item for concluído.
 
-Tudo o que o plugin produz fica no VO: a spec na descrição do item, as dúvidas como itens `pergunta`, o plano como sub-tasks e package, a revisão e o relatório final. Nada fica em arquivo local, a não ser `.claude/vo.json`, que liga o repositório ao projeto.
+Tudo o que o plugin produz fica no VO: a spec na descrição do item, as dúvidas como itens `pergunta`, o plano como sub-tasks e package, a revisão e o relatório final. Nada fica em arquivo local, a não ser `.vo.json`, que liga o repositório ao projeto.
 
 ## Requisitos
 

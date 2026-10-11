@@ -150,6 +150,29 @@ def referencias() -> None:
                 erro(f"{arquivo.relative_to(RAIZ)}: cita `{ref}`, que não existe")
 
 
+def regras_pedidas() -> None:
+    """Os nomes passados a `regras.sh` precisam existir em shared/."""
+    for arquivo in (PLUGIN / "skills").rglob("SKILL.md") if (PLUGIN / "skills").exists() else []:
+        for linha in re.findall(r"scripts/regras\.sh\"?\s+([^`]+)`", arquivo.read_text(encoding="utf-8")):
+            for nome in linha.split():
+                if not (PLUGIN / "shared" / f"{nome}.md").exists():
+                    erro(f"{arquivo.relative_to(RAIZ)}: pede a regra `{nome}`, que não existe em shared/")
+
+
+def scripts_liberados(skills_: list[tuple[str, dict]]) -> None:
+    """
+    Todo script chamado com `!` numa skill precisa estar no `allowed-tools`
+    dela: sem isso o Claude Code bloqueia o pré-processamento.
+    """
+    for nome, meta in skills_:
+        texto = (PLUGIN / "skills" / nome / "SKILL.md").read_text(encoding="utf-8")
+        permitidos = meta.get("allowed-tools", "")
+        permitidos = " ".join(permitidos) if isinstance(permitidos, list) else permitidos
+        for script in set(re.findall(r"!`sh [^`]*scripts/([\w.-]+\.sh)", texto)):
+            if f"scripts/{script}" not in permitidos:
+                erro(f"skills/{nome}: chama scripts/{script} com `!`, mas não o libera em `allowed-tools`")
+
+
 def readme(skills_: list[tuple[str, dict]], agentes_: list[str]) -> None:
     texto = (PLUGIN / "README.md").read_text(encoding="utf-8")
     for nome, meta in skills_:
@@ -197,6 +220,8 @@ def main() -> int:
     skills_ = skills()
     agentes_ = agentes()
     referencias()
+    regras_pedidas()
+    scripts_liberados(skills_)
     readme(skills_, agentes_)
     changelog(versao)
     if args.base:
