@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.0.3 — 11/10/2026
+
+- Rastreio da execução: `scripts/execucao.sh` marca o começo de um comando e o hook `PreToolUse` anexa `_vo` (comando, execução, item) às chamadas ao VO, para as métricas por comando.
+- Permissões durante um comando: leitura e criação/propostas aprovadas; `excluir_*`, `aprovar_proposta` e `rejeitar_proposta` sempre perguntam; fora de um comando (ou após 3 h parado) o hook não age.
+- O hook roda em Python 3.9 (o do macOS); `scripts/testar_hook.py` cobre os casos e roda na CI.
+
 ## 0.0.2 — 11/10/2026
 
 - O endereço do MCP passa a ser opcional: sem preencher, vale o padrão `https://vo.rivia-hub.tech/mcp`; só o token é obrigatório na instalação.

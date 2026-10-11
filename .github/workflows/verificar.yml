@@ -25,6 +25,12 @@ jobs:
             python3 scripts/verificar.py
           fi
 
+      - name: Hook de rastreio (Python 3.9, o do macOS)
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.9"
+      - run: python scripts/testar_hook.py
+
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
