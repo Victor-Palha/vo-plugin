@@ -61,7 +61,7 @@ scripts/verificar.py              verificação estrutural (CI)
 
 - Toda mudança em `plugins/` sobe a versão em `plugin.json` (semver) e ganha uma seção no `CHANGELOG.md`.
 - O header `X-VO-Cliente` do `.mcp.json` leva a mesma versão.
-- Antes do PR: `python3 scripts/verificar.py --base origin/main`, `python3 scripts/testar_hook.py` e `claude plugin validate plugins/vo --strict`. A CI roda os três (o teste do hook em Python 3.9).
+- Antes do PR: `python3 scripts/verificar.py --base origin/main`, `python3 scripts/testar_hook.py`, `python3 scripts/testar_metricas.py` e `claude plugin validate plugins/vo --strict`. A CI roda todos (os testes de scripts em Python 3.9).
 
 ## Licença
 

@@ -168,7 +168,7 @@ def scripts_liberados(skills_: list[tuple[str, dict]]) -> None:
         texto = (PLUGIN / "skills" / nome / "SKILL.md").read_text(encoding="utf-8")
         permitidos = meta.get("allowed-tools", "")
         permitidos = " ".join(permitidos) if isinstance(permitidos, list) else permitidos
-        for script in set(re.findall(r"!`sh [^`]*scripts/([\w.-]+\.sh)", texto)):
+        for script in set(re.findall(r"!`(?:sh|python3) [^`]*scripts/([\w.-]+\.(?:sh|py))", texto)):
             if f"scripts/{script}" not in permitidos:
                 erro(f"skills/{nome}: chama scripts/{script} com `!`, mas não o libera em `allowed-tools`")
 

@@ -3,7 +3,8 @@
 #
 #   sh execucao.sh <comando> <session_id> [argumentos do comando...]
 #
-# Grava {comando, execucao, item} num arquivo da sessão, fora do repositório.
+# Grava {comando, execucao, item} num arquivo da sessão, fora do repositório,
+# e acrescenta a execução ao histórico usado pelas métricas locais.
 # O hook PreToolUse (injetar_execucao.py) lê esse arquivo e anexa o argumento
 # reservado `_vo` a cada chamada ao MCP do VO, para as métricas saberem de
 # qual comando e execução ela veio. O VO remove `_vo` antes da ferramenta.
@@ -26,6 +27,11 @@ execucao="$(date -u +%Y%m%dT%H%M%SZ)-$(od -An -N4 -tx1 /dev/urandom | tr -d ' \n
 item="$(printf '%s ' "$@" | grep -oE '[A-Za-z][A-Za-z0-9]*-[0-9]+' | head -n 1 | tr '[:lower:]' '[:upper:]' || true)"
 
 printf '{"comando":"%s","execucao":"%s","item":"%s"}\n' "$comando" "$execucao" "$item" > "$dir/$sessao.json"
+
+# Histórico de todas as execuções, para as métricas locais (metricas.py):
+# o arquivo da sessão só guarda a última.
+printf '{"sessao":"%s","comando":"%s","execucao":"%s","item":"%s","inicio":"%s"}\n' \
+  "$sessao" "$comando" "$execucao" "$item" "$(date -u +%Y-%m-%dT%H:%M:%SZ)" >> "$dir/../execucoes.jsonl"
 
 # Arquivos de sessões com mais de 2 dias não servem mais.
 find "$dir" -name '*.json' -mtime +2 -delete 2>/dev/null || true
