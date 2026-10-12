@@ -26,6 +26,10 @@ O JSON acima vem de `scripts/metricas.py`. Ele lê o histórico do Claude Code d
 
 Uma execução vai do início do comando até o início do próximo comando na mesma sessão.
 
+## Servidor
+
+Use só as ferramentas do servidor do plugin (`mcp__plugin_vo_vo__*`). Se elas não existirem, pare. O Claude Code esconde esse servidor quando há outro, configurado à mão, com o mesmo endereço: a pessoa remove o manual (`claude mcp remove <nome>`) e abre a sessão de novo.
+
 ## Privacidade
 
 - Os números locais ficam nesta conversa. Não os grave no VO nem em arquivo, a menos que a pessoa peça.
