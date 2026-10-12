@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.13 — 12/10/2026
+
+- `/vo:configurar`: o erro de token aponta para `/plugin` › Installed › vo › Configure options.
+
 ## 0.0.12 — 12/10/2026
 
 - Documentação: o token se troca em `/plugin` › Installed › vo › Configure options (não existe `/plugin configure`).
