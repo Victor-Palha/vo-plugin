@@ -14,6 +14,8 @@ Plugin do View Office para o Claude Code. Visão geral, instalação e configura
 | `/vo:implementar <sub-task>` | Confere spec, dependências e impedimentos, entra na branch do package, orquestra `implementador` e `escritor-testes` com as skills dos arquivos, roda os checks, revisa com o `revisor` até ficar limpo e faz o commit local, comentando no item. |
 | `/vo:revisar [item]` | Revisa a branch contra a base com o agente `revisor`; cada apontamento cita a regra que o sustenta. Corrige um apontamento por vez, registra discordâncias com o motivo da pessoa e grava o resultado na história, com o sha. |
 | `/vo:preparar-pr [história]` | Com a revisão limpa no HEAD e os checks verdes, faz o push, cria ou edita o PR para a base do processo, move os itens para revisão, registra o relatório e lista as propostas que serão aplicadas na conclusão. |
+| `/vo:propor-skill [mudança\|inicial]` | Cria ou muda uma skill do projeto por proposta, com análise de impacto, diff e embasamento. Num projeto sem skills, o modo inicial analisa o repositório e propõe o primeiro conjunto, com fontes reais. |
+| `/vo:aprovar [PROP-N]` | Mostra cada proposta que você pode decidir (diff, embasamento, referências, quando vale) e aprova ou rejeita uma a uma, com a decisão escolhida pela pessoa. Exige o token com "Pode aprovar propostas". |
 
 ## Skills de apoio
 

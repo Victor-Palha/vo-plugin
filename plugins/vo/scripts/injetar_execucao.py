@@ -34,10 +34,14 @@ def ferramenta(nome_completo: str) -> str:
     return nome_completo.rsplit("__", 1)[-1]
 
 
-def decisao(nome: str) -> str:
-    if nome.startswith("excluir_") or nome in SEMPRE_PERGUNTAR:
-        return "ask"
-    return "allow"
+def decisao(nome: str) -> tuple[str, str]:
+    """A decisão de permissão e o motivo, que a pessoa vê ao confirmar e o
+    modelo recebe se a chamada for negada."""
+    if nome.startswith("excluir_"):
+        return "ask", "exclusão no VO: só com a sua confirmação."
+    if nome in SEMPRE_PERGUNTAR:
+        return "ask", "decidir uma proposta no VO: só com a sua confirmação, uma de cada vez."
+    return "allow", "chamada ao VO marcada com a execução."
 
 
 def execucao_da_sessao(sessao: str) -> dict | None:
@@ -66,13 +70,14 @@ def main() -> None:
     nome = ferramenta(entrada.get("tool_name", ""))
     argumentos = dict(entrada.get("tool_input") or {})
     argumentos["_vo"] = {k: v for k, v in execucao.items() if v}
+    permissao, motivo = decisao(nome)
 
     json.dump(
         {
             "hookSpecificOutput": {
                 "hookEventName": "PreToolUse",
-                "permissionDecision": decisao(nome),
-                "permissionDecisionReason": f"/vo:{execucao.get('comando')}: chamada ao VO marcada com a execução.",
+                "permissionDecision": permissao,
+                "permissionDecisionReason": f"/vo:{execucao.get('comando')}: {motivo}",
                 "updatedInput": argumentos,
             }
         },
