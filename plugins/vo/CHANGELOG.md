@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.0.10 — 11/10/2026
+
+- `/vo:propor-skill`: mudança com análise de impacto (skills, itens ligados, código), diff e embasamento; modo inicial que analisa o repositório e propõe o primeiro conjunto de skills com fontes reais.
+- `/vo:aprovar`: decide as propostas uma a uma, com a escolha da pessoa, e explica como ligar "Pode aprovar propostas" no token.
+- Hook: o motivo da permissão diz por que a chamada pede confirmação (exclusão, decisão de proposta), em vez da frase genérica de rastreio.
+
 ## 0.0.9 — 11/10/2026
 
 - `/vo:revisar`: diff contra o merge-base da base do processo, agente `revisor` com as skills dos arquivos, apontamentos sem citação descartados, correção um a um com "não se aplica" no motivo da pessoa e comentário de revisão com o sha na história.

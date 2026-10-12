@@ -69,6 +69,9 @@ def main() -> int:
                 falhas.append(f"{ferramenta}: o hook não respondeu")
                 continue
             conferir(resultado["permissionDecision"] == esperada, f"{ferramenta}: decisão {resultado['permissionDecision']}, esperada {esperada}")
+            motivo = resultado["permissionDecisionReason"]
+            conferir(motivo.startswith("/vo:refinar: "), f"{ferramenta}: motivo sem o comando: {motivo!r}")
+            conferir(("confirmação" in motivo) == (esperada == "ask"), f"{ferramenta}: motivo não explica a decisão: {motivo!r}")
             vo = resultado["updatedInput"].get("_vo", {})
             conferir(vo.get("comando") == "refinar" and vo.get("item") == "VO-12", f"{ferramenta}: _vo inesperado {vo}")
             conferir(resultado["updatedInput"].get("projeto_id") == "p1", f"{ferramenta}: os argumentos originais se perderam")
