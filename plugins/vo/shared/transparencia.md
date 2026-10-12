@@ -11,6 +11,7 @@ Toda escrita fora do repositório local é visível para o time e fica no histó
 Regras:
 
 - Ler no VO, no git e no GitHub é livre; só a escrita precisa de confirmação.
+- Fale com o VO **só pelas ferramentas do servidor do plugin** (`mcp__plugin_vo_vo__*`), que passam pelo rastreio e pelas confirmações do plugin. Se elas não existirem e houver outro servidor do VO na sessão (um configurado à mão, por exemplo), não use o outro: pare e explique que o Claude Code esconde o servidor do plugin quando há um servidor manual com o mesmo endereço. A pessoa remove o manual (`claude mcp remove <nome>`, na pasta do projeto) e abre a sessão de novo.
 - O VO só mostra o que a pessoa pode ver: lista vazia ou "não existe" pode ser falta de permissão. Antes de afirmar que algo não existe, confira `permissoes` em `obter_processo`. Sem `visualizar` num módulo, diga que não tem acesso a ele; sem `criar`, não proponha nada nele.
 - Se uma ferramenta falhar, mostre a mensagem do VO e pare o lote. Não tente contornar permissões nem repetir às cegas.
 - Nunca aprove nem rejeite propostas por conta própria. `aprovar_proposta` e `rejeitar_proposta` só no `/vo:aprovar`, com a pessoa decidindo cada uma.

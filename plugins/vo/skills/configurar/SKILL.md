@@ -27,7 +27,8 @@ As linhas do começo dizem se há repositório git (`git=`), a raiz dele (`repos
 
 ## Passos
 
-1. **Conexão.** Chame a ferramenta `listar_projetos` do servidor `vo`.
+1. **Conexão.** Chame a ferramenta `listar_projetos` do servidor do plugin (`mcp__plugin_vo_vo__listar_projetos`).
+   - Ferramenta inexistente: veja `shared/transparencia.md`. Se houver outro servidor do VO na sessão, o do plugin foi escondido por ser duplicado; peça para remover o manual e reabrir a sessão. Pare.
    - Erro de token (401, "Invalid or missing API token"): oriente a criar um token em View Office → **Tokens de API** e a trocá-lo em `/plugin` › **Installed** › vo › **Configure options**. Pare.
    - Erro de assinatura (403): diga que o acesso da companhia está suspenso até a contratação de um plano em Configurações. Pare.
    - Nenhum projeto: diga que o token não alcança nenhum projeto (revise os projetos do token no VO). Pare.

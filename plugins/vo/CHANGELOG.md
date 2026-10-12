@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.14 — 12/10/2026
+
+- Os comandos usam só as ferramentas do servidor do plugin (`mcp__plugin_vo_vo__*`). Sem elas, param e explicam o caso do servidor manual duplicado, que faz o Claude Code esconder o do plugin. O README avisa na instalação.
+
 ## 0.0.13 — 12/10/2026
 
 - `/vo:configurar`: o erro de token aponta para `/plugin` › Installed › vo › Configure options.
