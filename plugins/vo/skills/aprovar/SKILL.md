@@ -42,7 +42,7 @@ Aqui, e só aqui, o plugin chama `aprovar_proposta` e `rejeitar_proposta`, e sem
 
    Para proposta em `conflito`, as opções são **aplicar mesmo assim** (`forcar: true`, sobre a versão atual), **rejeitar** e **pular**. Proposta desatualizada: avise que aprovar pode dar conflito e sugira pedir a quem propôs para rebasear (`atualizar_proposta` com `rebasear`).
 5. **Executar** a decisão: `aprovar_proposta` (com `comentario`, `aplicar_agora` ou `forcar`, conforme a escolha) ou `rejeitar_proposta` (com `motivo`). Confira com `obter_proposta` (situação, quem decidiu e, se aplicada, a versão nova do alvo) e siga para a próxima.
-   - **Erro de token** ("Este token não pode aprovar nem rejeitar propostas"): explique que o token do plugin precisa ter **Pode aprovar propostas**. Para isso, crie um token novo com a opção marcada em **Tokens**, no VO, e troque o `vo_token` do plugin em `/plugin` › vo › configurar. Até lá, decida pela tela de Propostas do VO. Pare a fila.
+   - **Erro de token** ("Este token não pode aprovar nem rejeitar propostas"): explique que o token do plugin precisa ter **Pode aprovar propostas**. Para isso, crie um token novo com a opção marcada em **Tokens**, no VO, e troque o `vo_token` do plugin em `/plugin` › **Installed** › vo › **Configure options**. Até lá, decida pela tela de Propostas do VO. Pare a fila.
 6. **Resumo.** As propostas aprovadas (e as aplicadas já), as rejeitadas com o motivo, as puladas e as que esperam a conclusão de um item, com a chave do item.
 
 ## O que grava

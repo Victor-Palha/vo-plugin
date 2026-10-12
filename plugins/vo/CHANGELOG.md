@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.12 — 12/10/2026
+
+- Documentação: o token se troca em `/plugin` › Installed › vo › Configure options (não existe `/plugin configure`).
+
 ## 0.0.11 — 12/10/2026
 
 - `/vo:metricas`: junta as métricas do servidor (`obter_metricas`) com as locais pelo id da execução; tabelas por execução, comando e item; observações só com o que os números mostram.

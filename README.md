@@ -19,7 +19,7 @@ Tudo o que o plugin produz fica no VO: a spec na descrição do item, as dúvida
 /plugin install vo@rivia
 ```
 
-Na instalação, o Claude Code pede o **token de API** (guardado no cofre de credenciais do sistema) e o endereço do MCP. O padrão é `https://vo.rivia-hub.tech/mcp`; troque só se usar outra instalação do VO. Para mudar depois: `/plugin configure vo`.
+Na instalação, o Claude Code pede o **token de API** (guardado no cofre de credenciais do sistema) e o endereço do MCP. O padrão é `https://vo.rivia-hub.tech/mcp`; troque só se usar outra instalação do VO. Para mudar depois: `/plugin` › **Installed** › vo › **Configure options**. Enquanto o repositório for privado, o `marketplace add` usa as credenciais git que já estão na máquina (por exemplo, `gh auth login`).
 
 Em seguida, dentro do repositório do projeto:
 
