@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.1.0 — 12/10/2026
+
+Primeira versão pública.
+
+- **Comandos:**
+  - fluxo de trabalho de ponta a ponta no VO: `/vo:configurar`, `/vo:escrever-historia`, `/vo:responder-perguntas`, `/vo:refinar`, `/vo:planejar`, `/vo:implementar`, `/vo:revisar`, `/vo:preparar-pr`;
+  - conhecimento do projeto: `/vo:propor-skill` (com modo inicial) e `/vo:aprovar`;
+  - uso: `/vo:metricas`.
+- **Agentes:** `refinador`, `planejador`, `implementador`, `escritor-testes` e `revisor`.
+- **Skills do projeto:** as que valem para os arquivos em trabalho vêm do VO, e mudanças em domínios, ADRs e skills viram propostas.
+- **Hook e permissões:** o hook marca as chamadas com o comando e a execução, para as métricas. Exclusões e decisões de proposta sempre pedem confirmação.
+- **Dogfooding:** testado no próprio repositório do VO, da história ao PR (VO-123, VO-124).
+- **README:** requisitos, fluxo e privacidade.
+
 ## 0.0.14 — 12/10/2026
 
 - Os comandos usam só as ferramentas do servidor do plugin (`mcp__plugin_vo_vo__*`). Sem elas, param e explicam o caso do servidor manual duplicado, que faz o Claude Code esconder o do plugin. O README avisa na instalação.
