@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.0.9 — 11/10/2026
+
+- `/vo:revisar`: diff contra o merge-base da base do processo, agente `revisor` com as skills dos arquivos, apontamentos sem citação descartados, correção um a um com "não se aplica" no motivo da pessoa e comentário de revisão com o sha na história.
+- `/vo:preparar-pr`: exige árvore limpa, sub-tasks feitas, checks verdes e revisão limpa no HEAD; push, PR criado ou editado, itens na coluna de revisão, relatório ligado aos itens e as propostas que serão aplicadas.
+- Regras comuns: `shared/revisao.md`.
+
 ## 0.0.8 — 11/10/2026
 
 - `/vo:implementar`: pré-condições (spec, dependências, impedimento, responsável), branch do package sem criar por conta própria, implementador → escritor-testes com as skills dos arquivos previstos e reais, checks, ciclo de revisão até ficar limpa e commit local sem push, com comentário no item.
