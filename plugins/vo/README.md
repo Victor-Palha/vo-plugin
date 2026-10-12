@@ -16,6 +16,7 @@ Plugin do View Office para o Claude Code. Visão geral, instalação e configura
 | `/vo:preparar-pr [história]` | Com a revisão limpa no HEAD e os checks verdes, faz o push, cria ou edita o PR para a base do processo, move os itens para revisão, registra o relatório e lista as propostas que serão aplicadas na conclusão. |
 | `/vo:propor-skill [mudança\|inicial]` | Cria ou muda uma skill do projeto por proposta, com análise de impacto, diff e embasamento. Num projeto sem skills, o modo inicial analisa o repositório e propõe o primeiro conjunto, com fontes reais. |
 | `/vo:aprovar [PROP-N]` | Mostra cada proposta que você pode decidir (diff, embasamento, referências, quando vale) e aprova ou rejeita uma a uma, com a decisão escolhida pela pessoa. Exige o token com "Pode aprovar propostas". |
+| `/vo:metricas [item\|comando] [dias]` | Junta as métricas locais desta máquina (tempo e tokens por execução, lidos do histórico do Claude Code sem o texto das conversas) com as do servidor (chamadas, erros, p95), pelo id da execução, e aponta só o que os números mostram. |
 
 ## Skills de apoio
 
@@ -47,3 +48,6 @@ Plugin do View Office para o Claude Code. Visão geral, instalação e configura
 
 - `scripts/execucao.sh`: marca o começo de um comando (rastreio da execução).
 - `scripts/pre-condicoes.sh`: confere repositório, configuração e GitHub CLI antes de cada comando.
+- `scripts/regras.sh`: imprime as regras comuns de `shared/` que cada comando pede.
+- `scripts/metricas.py`: métricas locais por execução (tempo, chamadas MCP, tokens), lidas só dos metadados do histórico do Claude Code.
+- `scripts/injetar_execucao.py`: o hook que anexa a execução às chamadas ao VO e decide a permissão.

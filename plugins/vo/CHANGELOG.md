@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.0.11 — 12/10/2026
+
+- `/vo:metricas`: junta as métricas do servidor (`obter_metricas`) com as locais pelo id da execução; tabelas por execução, comando e item; observações só com o que os números mostram.
+- `scripts/metricas.py`: tempo (total, máquina, esperando, subagentes, MCP), chamadas lentas e tokens por execução, lidos dos metadados do histórico do Claude Code, sem o texto das conversas.
+- `execucao.sh` guarda o histórico de todas as execuções (`execucoes.jsonl`), não só a última de cada sessão.
+- Execuções que só existem no servidor usam o comando, o item e o início que o VO devolve em `agrupar_por: execucao`, sem deduzir pelos números.
+
 ## 0.0.10 — 11/10/2026
 
 - `/vo:propor-skill`: mudança com análise de impacto (skills, itens ligados, código), diff e embasamento; modo inicial que analisa o repositório e propõe o primeiro conjunto de skills com fontes reais.
